@@ -1,6 +1,13 @@
 # Changelog – FusionOS
 
-## 2.1.0 „Hybrid“ (aktuell)
+## 2.2.0 „Hybrid“ (aktuell)
+
+### Neu
+- **Fenster-Snap:** Fenster an den oberen Rand ziehen = maximieren, an linken/rechten Rand = halbe Bildschirmhälfte (wie Windows Snap). Ziehen löst das Fenster wieder.
+- **Desktop-Uhr-Widget:** Uhr mit Datum oben rechts auf dem Desktop (in `config.py` per `DESKTOP_CLOCK` abschaltbar)
+- **Explorer: Dateioperationen** – Ordner anlegen (📂 Neu) und Einträge löschen (🗑️ Löschen)
+
+## 2.1.0 „Hybrid“
 
 ### Neu
 - Projekt in saubere Paketstruktur umgezogen:

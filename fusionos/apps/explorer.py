@@ -1,6 +1,7 @@
-"""Explorer-App: Ordner mit Schnellzugriff und Navigation (Demo-Dateisystem)."""
+"""Explorer-App: Ordner mit Schnellzugriff, Navigation und Dateioperationen."""
 
 import tkinter as tk
+from tkinter import simpledialog
 
 from .. import theme
 
@@ -24,9 +25,38 @@ def build(parent, ctx):
     tk.Label(sidebar, text="Schnellzugriff", bg=theme.color("window"),
              fg=theme.color("text_dim"), font=(theme.FONT, 9)).pack(anchor="w", padx=12, pady=(10, 4))
 
-    path_label = tk.Label(main, text="Dieser PC › Desktop", bg=theme.color("window"),
+    path_row = tk.Frame(main, bg=theme.color("window"))
+    path_row.pack(fill="x", padx=12, pady=(10, 2))
+    path_label = tk.Label(path_row, text="Dieser PC › Desktop", bg=theme.color("window"),
                           fg=theme.color("text_dim"), font=(theme.FONT, 9), anchor="w")
-    path_label.pack(fill="x", padx=12, pady=(10, 2))
+    path_label.pack(side="left")
+
+    def tool_btn(label, cmd):
+        tk.Button(path_row, text=label, relief="flat", bd=0, cursor="hand2",
+                  bg=theme.color("window"), fg=theme.color("text"),
+                  activebackground=theme.color("hover"), activeforeground=theme.color("text"),
+                  font=(theme.FONT, 9), padx=8, pady=3, command=cmd
+                  ).pack(side="right", padx=(6, 0))
+
+    def new_folder():
+        name = simpledialog.askstring("Neuer Ordner", "Name des neuen Ordners:", parent=parent)
+        if name and name.strip():
+            FILESYSTEM.setdefault(current["folder"], {})[name.strip()] = "ordner"
+            open_folder(current["folder"])
+            ctx.toast(f"📂 Ordner „{name.strip()}“ angelegt")
+
+    def delete_item():
+        sel = listbox.curselection()
+        if not sel:
+            ctx.toast("Erst einen Eintrag auswählen.")
+            return
+        name = listbox.get(sel[0]).split("  ", 1)[1]
+        del FILESYSTEM[current["folder"]][name]
+        open_folder(current["folder"])
+        ctx.toast(f"🗑️ „{name}“ gelöscht")
+
+    tool_btn("📂 Neu", new_folder)
+    tool_btn("🗑️ Löschen", delete_item)
 
     listbox = tk.Listbox(main, bg=theme.color("input"), fg=theme.color("text"),
                          font=(theme.FONT, 11), relief="flat", highlightthickness=0,

@@ -8,7 +8,7 @@
 ![Dependencies](https://img.shields.io/badge/Abh%C3%A4ngigkeiten-0-success)
 ![Platform](https://img.shields.io/badge/Plattform-Windows%2010%2F11-0078d4?logo=windows&logoColor=white)
 ![License](https://img.shields.io/badge/Lizenz-MIT-green)
-![Version](https://img.shields.io/badge/Version-2.1.0%20%E2%80%9EHybrid%E2%80%9C-7a3ff2)
+![Version](https://img.shields.io/badge/Version-2.2.0%20%E2%80%9EHybrid%E2%80%9C-7a3ff2)
 
 **[Quickstart](#-quickstart-3-minuten) · [Features](#-features) · [Bedienung](#-bedienung) · [Eigene Apps](#-eigene-apps-schreiben) · [FAQ](#-faq)**
 
@@ -48,7 +48,7 @@ Dann: Boot-Balken abwarten → am Sperrbildschirm ein **beliebiges Passwort** ei
 |---|---|
 | **Taskbar** | Unten, Icons mittig, Start-Button ⊞, Laufend-Punkte unter aktiven Apps |
 | **Startmenü** | Suche mit Live-Filter, angepinnte App-Kacheln, Benutzer & Power-Menü |
-| **Fenster** | ─ ▢ ✕ Buttons, verschieben, an der Ecke skalieren, Doppelklick = maximieren |
+| **Fenster** | ─ ▢ ✕ Buttons, verschieben, an der Ecke skalieren, Doppelklick = maximieren, **Snap** an Bildschirmränder |
 | **Task-Manager** | Laufende Fenster beenden + live CPU/RAM-Anzeige |
 | **Terminal** | Eigene Shell `fsh` mit 13 Befehlen — inklusive `neofetch` |
 | **Akzentfarbe** | Windows-Blau durchgängig (Buttons, Auswahl, Laufend-Punkte) |
@@ -66,7 +66,7 @@ Dann: Boot-Balken abwarten → am Sperrbildschirm ein **beliebiges Passwort** ei
 
 | App | Was sie kann |
 |---|---|
-| 📁 **Explorer** | Schnellzugriff, Ordner-Navigation, Demo-Dateisystem |
+| 📁 **Explorer** | Schnellzugriff, Navigation, Ordner anlegen & löschen |
 | 🖥️ **Terminal** | Eigene Shell: `dir`, `open rechner`, `neofetch`, `theme`, `shutdown` … |
 | 📝 **Editor** | Echte Öffnen-/Speichern-Dialoge, Undo |
 | 🧮 **Rechner** | Grundrechenarten, Prozent, Vorzeichen, Fehlerbehandlung |
@@ -192,10 +192,10 @@ Lokal ansehen: `website/index.html` öffnen. Öffentlich hosten: [GitHub Pages](
 
 ## 🗺️ Roadmap
 
-- [ ] Eigene Dateien im Explorer anlegen/löschen
+- [x] Eigene Ordner im Explorer anlegen/löschen *(2.2)*
+- [x] Widgets (Uhr) auf dem Desktop *(2.2)*
+- [x] Fenster-Snap (an Bildschirmränder andocken) *(2.2)*
 - [ ] Sound-Feedback & Startmenü-Animationen
-- [ ] Widgets (Uhr, Wetter-Demo) auf dem Desktop
-- [ ] Fenster-Snap (an Bildschirmränder andocken)
 - [ ] Fusion Store: Apps aus einer JSON-Datei nachladen
 
 ---
