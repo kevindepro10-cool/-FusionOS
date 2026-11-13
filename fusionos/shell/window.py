@@ -14,7 +14,9 @@ class FusionWindow(tk.Toplevel):
         self.ctx = ctx
         self.minimized = False
         self.maximized = False
+        self.snapped = False
         self._restore = None
+        self._restore_size = (config.WINDOW_MIN_W, config.WINDOW_MIN_H)
 
         self.configure(bg=theme.color("window"), bd=0, highlightthickness=1,
                        highlightbackground=theme.color("border"))
@@ -54,6 +56,7 @@ class FusionWindow(tk.Toplevel):
         for widget in (titlebar, icon_label, title_label):
             widget.bind("<Button-1>", self._drag_start)
             widget.bind("<B1-Motion>", self._drag_move)
+            widget.bind("<ButtonRelease-1>", self._snap_release)
             widget.bind("<Double-Button-1>", lambda _e: self.do_maximize())
 
         self.content = tk.Frame(self, bg=theme.color("window"))
@@ -68,16 +71,45 @@ class FusionWindow(tk.Toplevel):
         self.bind("<Button-1>", lambda _e: self.lift())
         self.protocol("WM_DELETE_WINDOW", self.do_close)
 
-    # -- Drag --------------------------------------------------------------
+    # -- Drag & Snap --------------------------------------------------------------
     def _drag_start(self, event):
         if self.maximized:
             return
-        self._dx, self._dy = event.x, event.y
+        if self.snapped:
+            w, h = self._restore_size
+            self.geometry(f"{w}x{h}+{max(0, event.x_root - w // 2)}+{max(0, event.y_root - 19)}")
+            self.snapped = False
+            self._dx, self._dy = w // 2, 19
+        else:
+            self._dx, self._dy = event.x, event.y
 
     def _drag_move(self, event):
         if self.maximized:
             return
         self.geometry(f"+{event.x_root - self._dx}+{event.y_root - self._dy}")
+        self._last_x, self._last_y = event.x_root, event.y_root
+
+    def _snap_release(self, event):
+        if self.maximized:
+            return
+        sw = self.ctx.root.winfo_screenwidth()
+        sh = self.ctx.root.winfo_screenheight() - config.TASKBAR_H
+        edge = config.SNAP_EDGE_PX
+        if event.y_root <= edge:
+            self._snap_to(f"{sw}x{sh}+0+0")
+        elif event.x_root <= edge:
+            self._snap_to(f"{sw // 2}x{sh}+0+0")
+        elif event.x_root >= sw - edge:
+            self._snap_to(f"{sw // 2}x{sh}+{sw // 2}+0")
+
+    def _snap_to(self, geometry):
+        if not self.snapped:
+            self._restore = self.geometry()
+            self._restore_size = (self.winfo_width(), self.winfo_height())
+        self.geometry(geometry)
+        self.snapped = True
+        self.lift()
+        self.ctx.toast("🪟 Fenster angedockt – ziehen zum Lösen")
 
     # -- Resize --------------------------------------------------------------
     def _resize_start(self, event):

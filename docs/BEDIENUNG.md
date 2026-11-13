@@ -26,6 +26,9 @@ Nach dem Start: Boot-Balken abwarten → am Sperrbildschirm ein **beliebiges Pas
 | Rechtsklick auf Desktop | Kontextmenü (Hintergrund, Theme, Apps …) |
 | Doppelklick auf Fenstertitelleiste | Maximieren / wiederherstellen |
 | Ziehen am Titelfeld | Fenster verschieben |
+| Ziehen an den **oberen Rand** | Maximieren (Snap) |
+| Ziehen an den **linken/rechten Rand** | Andocken an halbe Bildschirmhälfte (Snap) |
+| Ziehen eines angedockten Fensters | Vom Rand lösen, alte Größe zurück |
 | Ziehen an der Ecke `◢` | Fenstergröße ändern |
 | Klick auf Taskbar-Icon | App öffnen / minimieren / wiederherstellen |
 

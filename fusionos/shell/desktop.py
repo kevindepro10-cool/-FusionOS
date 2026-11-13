@@ -1,5 +1,6 @@
-"""Desktop-Fläche: Gradient-Wallpaper, Icons, Kontextmenü."""
+"""Desktop-Fläche: Gradient-Wallpaper, Icons, Kontextmenü, Uhr-Widget."""
 
+import datetime
 import tkinter as tk
 
 from .. import theme
@@ -17,6 +18,8 @@ class Desktop(tk.Canvas):
         self.bind("<Button-3>", self._context_menu)
         self.apply_wallpaper()
         self.build_icons()
+        if config.DESKTOP_CLOCK:
+            self.build_clock_widget()
 
     # -- Wallpaper -----------------------------------------------------------
     def apply_wallpaper(self):
@@ -42,6 +45,30 @@ class Desktop(tk.Canvas):
                 cmd = lambda a=app_id: self.os.open_app(a)  # noqa: E731
             self.tag_bind(f"icon{i}", "<Double-Button-1>", lambda _e, c=cmd: c())
             self.tag_bind(f"icon{i}", "<Button-3>", self._context_menu)
+
+    # -- Uhr-Widget -----------------------------------------------------------
+    def build_clock_widget(self):
+        self.delete("clockwidget")
+        sw = self.winfo_screenwidth()
+        frame = tk.Frame(self, bg=theme.color("card"), bd=0,
+                         highlightthickness=1, highlightbackground=theme.color("border"))
+        time_lbl = tk.Label(frame, text="", bg=theme.color("card"), fg=theme.color("text"),
+                            font=(theme.FONT, 26, "bold"), padx=18, pady=(10, 0))
+        time_lbl.pack()
+        date_lbl = tk.Label(frame, text="", bg=theme.color("card"), fg=theme.color("text_dim"),
+                            font=(theme.FONT, 9), padx=18, pady=(0, 10))
+        date_lbl.pack()
+
+        def tick():
+            if not frame.winfo_exists():
+                return
+            now = datetime.datetime.now()
+            time_lbl.config(text=now.strftime("%H:%M"))
+            date_lbl.config(text=now.strftime("%d.%m.%Y"))
+            frame.after(1000, tick)
+
+        tick()
+        self.create_window(sw - 24, 24, window=frame, anchor="ne", tags="clockwidget")
 
     # -- Kontextmenü -----------------------------------------------------------
     def _context_menu(self, event):

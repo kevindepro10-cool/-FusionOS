@@ -16,6 +16,12 @@ START_H = 500
 WINDOW_MIN_W = 380
 WINDOW_MIN_H = 260
 
+# Fenster-Snap: Abstand zum Bildschirmrand (in px), der eine Andockzone auslöst
+SNAP_EDGE_PX = 6
+
+# Desktop-Widget: Uhr oben rechts anzeigen
+DESKTOP_CLOCK = True
+
 USER_NAME = "Gast"
 PROMPT = "C:\\Users\\Gast>"
 
