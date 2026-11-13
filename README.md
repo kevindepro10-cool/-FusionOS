@@ -1,80 +1,223 @@
-# ◈ FusionOS 1.0 „Hybrid“
+<div align="center">
 
-**Dein eigenes OS als echte Desktop-App für Windows** — geschrieben in Python, mit dem Look von **Windows 11** und einer Prise macOS. Plus einer Vorstell-Webseite im Ordner `website/`.
+# ◈ FusionOS
+
+### *Dein eigenes OS für Windows — Windows 11 trifft macOS*
+
+![Python](https://img.shields.io/badge/Python-3.9%2B-0a84ff?logo=python&logoColor=white)
+![Dependencies](https://img.shields.io/badge/Abh%C3%A4ngigkeiten-0-success)
+![Platform](https://img.shields.io/badge/Plattform-Windows%2010%2F11-0078d4?logo=windows&logoColor=white)
+![License](https://img.shields.io/badge/Lizenz-MIT-green)
+![Version](https://img.shields.io/badge/Version-2.1.0%20%E2%80%9EHybrid%E2%80%9C-7a3ff2)
+
+**[Quickstart](#-quickstart-3-minuten) · [Features](#-features) · [Bedienung](#-bedienung) · [Eigene Apps](#-eigene-apps-schreiben) · [FAQ](#-faq)**
+
+Eine echte **Desktop-App in Python** — kein Browser-Spiel, kein Setup, keine Abhängigkeiten.
+Boot-Screen, Sperrbildschirm, Taskbar, Startmenü, 9 Apps. Alles drin.
+
+</div>
 
 ---
 
-## 🚀 So startest du FusionOS (Windows)
+## 🚀 Quickstart (3 Minuten)
 
-1. **Python 3.9+ installieren** (falls nicht vorhanden): [python.org/downloads](https://www.python.org/downloads/) → bei der Installation **„Add Python to PATH“ ankreuzen**
-2. Dieses Repository herunterladen (**Code → Download ZIP**) und entpacken
-3. **Doppelklick auf `run.bat`** — fertig! 🎉
+```bash
+# 1. Python 3.9+ installieren („Add Python to PATH“ ankreuzen!)
+#    https://www.python.org/downloads/
 
-Alternativ in einer Konsole:
+# 2. FusionOS laden
+#    GitHub → Code → Download ZIP → entpacken
 
-```
+# 3. Starten
+run.bat        # Windows: einfach doppelklicken
+# oder:
 python main.py
 ```
 
-> Keine Installation von Paketen nötig — FusionOS nutzt nur die Python-Standardbibliothek (tkinter).
+Dann: Boot-Balken abwarten → am Sperrbildschirm ein **beliebiges Passwort** eingeben → **Enter** → dein Desktop startet. 🎉
 
-## 🪟 Was ist FusionOS?
+> 📦 Detaillierte Anleitung mit Fehlerbehebung: [docs/INSTALLATION.md](docs/INSTALLATION.md)
 
-Ein kompletter Desktop in einem Fenster — **meistens Windows 11, mit macOS-DNA**:
+---
 
-| Element | Stil |
+## ✨ Features
+
+### 🪟 Windows 11 (der Hauptteil)
+
+| Feature | Beschreibung |
 |---|---|
-| Taskbar unten, Icons mittig, Laufend-Punkte | Windows 11 |
-| Startmenü mit Suche + angepinnten Apps (⊞ / Win-Taste) | Windows 11 |
-| Fenster mit ─ ▢ ✕, Doppelklick auf Titelleiste = Maximieren | Windows 11 |
-| Boot-Screen mit ◈-Logo & Ladebalken, Sperrbildschirm | Windows Hello × macOS |
-| Gradient-Wallpaper, abgerundete Optik, Glas-Farben | macOS |
+| **Taskbar** | Unten, Icons mittig, Start-Button ⊞, Laufend-Punkte unter aktiven Apps |
+| **Startmenü** | Suche mit Live-Filter, angepinnte App-Kacheln, Benutzer & Power-Menü |
+| **Fenster** | ─ ▢ ✕ Buttons, verschieben, an der Ecke skalieren, Doppelklick = maximieren |
+| **Task-Manager** | Laufende Fenster beenden + live CPU/RAM-Anzeige |
+| **Terminal** | Eigene Shell `fsh` mit 13 Befehlen — inklusive `neofetch` |
+| **Akzentfarbe** | Windows-Blau durchgängig (Buttons, Auswahl, Laufend-Punkte) |
 
-### Mitgelieferte Apps (9)
+### 🍎 macOS (die DNA)
 
-- 📁 **Explorer** — Ordner, Schnellzugriff, Navigation
-- 🖥️ **Terminal** — `help`, `dir`, `neofetch`, `open <app>`, `theme`, `shutdown` …
-- 📝 **Editor** — Öffnen/Speichern über echte Dateidialoge
-- 🧮 **Rechner** — komplett bedienbar
-- 📊 **Task-Manager** — laufende Fenster verwalten + CPU/RAM-Anzeige
-- 🌐 **Fusion Browser** — öffnet Seiten in deinem Standardbrowser
-- 🖼️ **Fotos** — Galerie
-- ⚙️ **Einstellungen** — 6 Gradient-Wallpaper, Hell/Dunkel
-- ℹ️ **Über FusionOS** — Systeminfos
+| Feature | Beschreibung |
+|---|---|
+| **Boot-Erlebnis** | ◈-Logo mit Ladebalken wie beim echten Systemstart |
+| **Gradient-Wallpaper** | 6 handgemachte Verläufe (Windows Blau, Bloom Lila, Abendrot …) |
+| **Design-Welt** | Glas-Farben, sanfte Hover-Effekte, clean & reduziert |
+| **Hell & Dunkel** | Komplettes Zwei-Farben-Theme, jederzeit umschaltbar |
 
-## ⌨️ Bedienung
+### 📦 Mitgelieferte Apps (9)
 
-- **Win-Taste (⊞)** → Startmenü öffnen/schließen
-- **Doppelklick** auf Desktop-Icons → App starten
-- **Rechtsklick auf Desktop** → Kontextmenü (Hintergrund, Theme, Terminal, Task-Manager …)
-- **Doppelklick auf Fenstertitelleiste** → maximieren/wiederherstellen
-- **Escape** → Startmenü schließen
+| App | Was sie kann |
+|---|---|
+| 📁 **Explorer** | Schnellzugriff, Ordner-Navigation, Demo-Dateisystem |
+| 🖥️ **Terminal** | Eigene Shell: `dir`, `open rechner`, `neofetch`, `theme`, `shutdown` … |
+| 📝 **Editor** | Echte Öffnen-/Speichern-Dialoge, Undo |
+| 🧮 **Rechner** | Grundrechenarten, Prozent, Vorzeichen, Fehlerbehandlung |
+| 📊 **Task-Manager** | Fenster verwalten + CPU/RAM-Simulation |
+| 🌐 **Fusion Browser** | Adressen im Standardbrowser öffnen, Quick-Links |
+| 🖼️ **Fotos** | Bunte Demo-Galerie |
+| ⚙️ **Einstellungen** | Wallpaper, Hell/Dunkel, Systeminfos |
+| ℹ️ **Über FusionOS** | Versions- & Systeminfos |
 
-## 🖥️ Terminal-Befehle
+---
 
-`help` · `dir` · `date` · `whoami` · `echo TEXT` · `open <app>` (z.B. `open rechner`) · `neofetch` · `theme` · `cls` · `shutdown`
+## 🎮 Bedienung
 
-## 🌐 Vorstell-Webseite
+| Eingabe | Wirkung |
+|---|---|
+| `Win`-Taste (⊞) | Startmenü öffnen/schließen |
+| `Strg` + `Alt` + `T` | Terminal starten |
+| `Esc` | Startmenü schließen |
+| Doppelklick Desktop-Icon | App starten |
+| Rechtsklick Desktop | Kontextmenü (Hintergrund, Theme, Apps …) |
+| Doppelklick Titelleiste | Maximieren/wiederherstellen |
 
-Im Ordner [`website/`](website/) liegt eine komplette Landing-Page für FusionOS (Deutsch, dunkles Design, Features, Quickstart). Einfach `website/index.html` im Browser öffnen — oder den Ordner auf [GitHub Pages](https://pages.github.com/) hosten, dann ist sie öffentlich erreichbar.
+Vollständige Übersicht: [docs/BEDIENUNG.md](docs/BEDIENUNG.md)
 
-## 🛠️ Anpassen (dein eigenes OS!)
-
-- **Name/Logo:** in `main.py` / `apps.py` / `theme.py` nach „FusionOS“ bzw. `◈` suchen
-- **Eigene App:** in `apps.py` eine `build_meineapp(parent, ctx)`-Funktion schreiben und im `APPS`-Dict registrieren — sie erscheint automatisch in Startmenü, Taskbar & Desktop
-- **Wallpaper:** in `main.py` die Liste `WALLPAPERS` erweitern
-- **Farben:** in `theme.py` (`DARK` / `LIGHT`)
+---
 
 ## 📁 Projektstruktur
 
 ```
-├── main.py        # Boot, Login, Desktop, Taskbar, Startmenü, Fenster-Manager
-├── apps.py        # Alle 9 Apps
-├── theme.py       # Farben (Dunkel/Hell) & Schriften
-├── run.bat        # Windows-Doppelklick-Starter
-└── website/       # Vorstell-Webseite (index.html + style.css)
+FusionOS/
+├── main.py                     # Startpunkt (3 Zeilen)
+├── run.bat                     # Windows-Doppelklick-Starter
+├── requirements.txt            # absichtlich leer: 0 Abhängigkeiten
+│
+├── fusionos/                   # Das "Betriebssystem"
+│   ├── __init__.py             # Name, Logo, Version
+│   ├── config.py               # Wallpaper, Taskbar, Icons, Benutzer
+│   ├── theme.py                # Farben (Dunkel/Hell) & Schriften
+│   ├── utils.py                # Gradient-Rendering
+│   ├── os.py                   # Hauptklasse: verbindet alles
+│   │
+│   ├── shell/                  # Die Desktop-Oberfläche
+│   │   ├── desktop.py          # Wallpaper, Icons, Kontextmenü
+│   │   ├── taskbar.py          # Start-Button, Icons, Uhr
+│   │   ├── startmenu.py        # Suche, Kacheln, Power-Menü
+│   │   └── window.py           # Fensterverwaltung (─ ▢ ✕)
+│   │
+│   ├── system/                 # Systemkomponenten
+│   │   ├── boot.py             # Boot-Splash mit Ladebalken
+│   │   ├── lockscreen.py       # Sperrbildschirm
+│   │   └── toast.py            # Benachrichtigungen
+│   │
+│   └── apps/                   # Eine Datei pro App
+│       ├── __init__.py         # App-Registry (hier neue Apps eintragen!)
+│       ├── explorer.py         ├── terminal.py
+│       ├── editor.py           ├── rechner.py
+│       ├── taskmanager.py      ├── browser.py
+│       ├── fotos.py            ├── einstellungen.py
+│       └── info.py
+│
+├── docs/                       # Dokumentation
+│   ├── INSTALLATION.md         # Setup + Fehlerbehebung
+│   ├── BEDIENUNG.md            # Alle Kürzel & Befehle
+│   ├── APPS_ENTWICKELN.md      # Tutorial: eigene Apps bauen
+│   └── CHANGELOG.md            # Was hat sich geändert
+│
+└── website/                    # Vorstell-Webseite
+    ├── index.html              # Landing-Page (Features, Mix, Quickstart)
+    └── style.css
 ```
 
-## ⚠️ Hinweis
+---
 
-FusionOS ist eine **Desktop-Oberfläche als Python-App** — ein „OS im OS“ zum Ausprobieren und Weiterbauen. Windows selbst bleibt dabei dein echtes Betriebssystem darunter.
+## 🛠️ Eigene Apps schreiben
+
+In 3 Schritten zur eigenen App — Beispiel **Uhr**:
+
+```python
+# fusionos/apps/uhr.py
+import datetime
+import tkinter as tk
+from .. import theme
+
+def build(parent, ctx):
+    label = tk.Label(parent, bg=theme.color("window"), fg=theme.color("text"),
+                     font=(theme.FONT, 48, "bold"))
+    label.pack(expand=True)
+
+    def tick():
+        if label.winfo_exists():
+            label.config(text=datetime.datetime.now().strftime("%H:%M:%S"))
+            label.after(1000, tick)
+    tick()
+```
+
+```python
+# fusionos/apps/__init__.py – registrieren:
+from .uhr import build as build_uhr
+APPS = { ..., "uhr": {"name": "Uhr", "icon": "🕐", "size": (360, 220), "build": build_uhr} }
+```
+
+Fertig — die App erscheint automatisch im Startmenü, in der Suche und im Terminal (`open uhr`).
+
+**Vollständiges Tutorial:** [docs/APPS_ENTWICKELN.md](docs/APPS_ENTWICKELN.md)
+
+Weitere Anpasspunkte:
+
+| Was | Wo |
+|---|---|
+| Wallpaper hinzufügen | `fusionos/config.py` → `WALLPAPERS` |
+| Taskbar/Icons ändern | `fusionos/config.py` → `PINNED_APPS` / `DESKTOP_ICONS` |
+| Farben ändern | `fusionos/theme.py` → `DARK` / `LIGHT` |
+| Benutzername ändern | `fusionos/config.py` → `USER_NAME` |
+
+---
+
+## 🌐 Vorstell-Webseite
+
+Im Ordner [`website/`](website/) liegt eine fertige Landing-Page (dunkles Design, Feature-Karten, Terminal-Demo).
+Lokal ansehen: `website/index.html` öffnen. Öffentlich hosten: [GitHub Pages](https://pages.github.com/) aktivieren (Settings → Pages → Branch `main`, Ordner `/website`).
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Eigene Dateien im Explorer anlegen/löschen
+- [ ] Sound-Feedback & Startmenü-Animationen
+- [ ] Widgets (Uhr, Wetter-Demo) auf dem Desktop
+- [ ] Fenster-Snap (an Bildschirmränder andocken)
+- [ ] Fusion Store: Apps aus einer JSON-Datei nachladen
+
+---
+
+## ❓ FAQ
+
+**Ist das ein echtes Betriebssystem?**
+Es ist eine Desktop-Oberfläche als Python-App — ein „OS im OS“. Windows läuft darunter weiter. Ein bootfähiges OS (C/Assembler) wäre ein eigenes, deutlich größeres Projekt.
+
+**Brauche ich Internet?**
+Nein. FusionOS läuft komplett offline. (Nur der Fusion Browser öffnet natürlich echte Webseiten.)
+
+**Warum tkinter?**
+Weil es in Python eingebaut ist — dadurch startet FusionOS **ohne eine einzige Installation** per `pip`. Einfach Python haben, `run.bat` doppelklicken, fertig.
+
+**Kann ich mitmachen?**
+Ja! Fork das Repo, baue eine App ([Tutorial](docs/APPS_ENTWICKELN.md)) und öffne einen Pull Request.
+
+---
+
+<div align="center">
+
+**◈ FusionOS** — gebaut mit Python & tkinter · [MIT-Lizenz](LICENSE) · gemacht von [kevindepro10-cool](https://github.com/kevindepro10-cool)
+
+</div>

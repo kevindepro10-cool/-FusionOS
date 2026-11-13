@@ -1,0 +1,3 @@
+# FusionOS benötigt KEINE externen Pakete.
+# Alles läuft mit der Python-Standardbibliothek (tkinter).
+# Diese Datei ist nur der Formalität halber vorhanden.

@@ -1,4 +1,4 @@
-"""FusionOS – Farben & Schriften (Windows 11 inspired)."""
+"""Farben & Schriften von FusionOS (Windows 11 inspired)."""
 
 FONT = "Segoe UI"
 FONT_MONO = "Consolas"
@@ -48,9 +48,9 @@ LIGHT = {
 _mode = "dark"
 
 
-def set_mode(mode: str) -> None:
+def set_mode(mode_name: str) -> None:
     global _mode
-    _mode = "light" if mode == "light" else "dark"
+    _mode = "light" if mode_name == "light" else "dark"
 
 
 def mode() -> str:
