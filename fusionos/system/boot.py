@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from .. import theme
+from ..utils import fullscreen_overlay
 
 
 class BootSplash(tk.Toplevel):
@@ -12,8 +13,7 @@ class BootSplash(tk.Toplevel):
     def __init__(self, root, on_done):
         super().__init__(root, bg="#000000")
         self._on_done = on_done
-        self.overrideredirect(True)
-        self.attributes("-fullscreen", True)
+        fullscreen_overlay(self, root)
 
         canvas = tk.Canvas(self, bg="#000000", highlightthickness=0)
         canvas.pack(fill="both", expand=True)

@@ -1,6 +1,22 @@
-"""Hilfsfunktionen (Gradient-Rendering etc.)."""
+"""Hilfsfunktionen (Gradient-Rendering, Vollbild-Overlays etc.)."""
 
 import tkinter as tk
+
+
+def fullscreen_overlay(win: tk.Wm, root: tk.Misc) -> None:
+    """Macht ein Toplevel randlos und bildschirmfüllend.
+
+    Wichtig: -fullscreen und overrideredirect(True) dürfen nicht kombiniert
+    werden (Tk 9 / Python 3.13+ wirft sonst einen TclError). Stattdessen wird
+    das Fenster einfach auf Bildschirmgröße gesetzt.
+    """
+    win.overrideredirect(True)
+    sw, sh = root.winfo_screenwidth(), root.winfo_screenheight()
+    win.geometry(f"{sw}x{sh}+0+0")
+    try:
+        win.attributes("-topmost", True)
+    except tk.TclError:
+        pass
 
 
 def hex2rgb(value: str):

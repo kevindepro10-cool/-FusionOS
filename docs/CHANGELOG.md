@@ -1,6 +1,11 @@
 # Changelog – FusionOS
 
-## 2.2.1 „Hybrid“ (aktuell)
+## 2.2.2 „Hybrid“ (aktuell)
+
+### Behoben
+- **Zweiter Start-Absturz behoben (Python 3.13+/Tk 9):** `-fullscreen` und `overrideredirect(True)` dürfen nicht mehr kombiniert werden – Boot-Splash und Sperrbildschirm nutzen jetzt eine gemeinsame, sichere Vollbild-Hilfsfunktion (`utils.fullscreen_overlay`), die das Fenster einfach auf Bildschirmgröße setzt
+
+## 2.2.1 „Hybrid“
 
 ### Behoben
 - **Start-Absturz behoben:** `tk.Label` akzeptiert bei den Widget-Optionen `padx`/`pady` keine Tupel – das Uhr-Widget nutzt die Polsterung jetzt korrekt über `pack()` (betroffen war Python 3.13/3.14, dort strenger geprüft)

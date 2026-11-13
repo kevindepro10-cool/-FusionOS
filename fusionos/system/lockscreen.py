@@ -5,6 +5,7 @@ import tkinter as tk
 
 from .. import theme
 from .. import config
+from ..utils import fullscreen_overlay
 
 WEEKDAYS = {"Monday": "Montag", "Tuesday": "Dienstag", "Wednesday": "Mittwoch",
             "Thursday": "Donnerstag", "Friday": "Freitag", "Saturday": "Samstag",
@@ -24,8 +25,7 @@ class LockScreen(tk.Toplevel):
 
     def __init__(self, root, on_login):
         super().__init__(root, bg="#10131c")
-        self.overrideredirect(True)
-        self.attributes("-fullscreen", True)
+        fullscreen_overlay(self, root)
         sw, sh = root.winfo_screenwidth(), root.winfo_screenheight()
 
         canvas = tk.Canvas(self, bg="#10131c", highlightthickness=0)
