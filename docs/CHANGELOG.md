@@ -1,6 +1,11 @@
 # Changelog – FusionOS
 
-## 2.2.0 „Hybrid“ (aktuell)
+## 2.2.1 „Hybrid“ (aktuell)
+
+### Behoben
+- **Start-Absturz behoben:** `tk.Label` akzeptiert bei den Widget-Optionen `padx`/`pady` keine Tupel – das Uhr-Widget nutzt die Polsterung jetzt korrekt über `pack()` (betroffen war Python 3.13/3.14, dort strenger geprüft)
+
+## 2.2.0 „Hybrid“
 
 ### Neu
 - **Fenster-Snap:** Fenster an den oberen Rand ziehen = maximieren, an linken/rechten Rand = halbe Bildschirmhälfte (wie Windows Snap). Ziehen löst das Fenster wieder.

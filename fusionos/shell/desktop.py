@@ -53,11 +53,11 @@ class Desktop(tk.Canvas):
         frame = tk.Frame(self, bg=theme.color("card"), bd=0,
                          highlightthickness=1, highlightbackground=theme.color("border"))
         time_lbl = tk.Label(frame, text="", bg=theme.color("card"), fg=theme.color("text"),
-                            font=(theme.FONT, 26, "bold"), padx=18, pady=(10, 0))
-        time_lbl.pack()
+                            font=(theme.FONT, 26, "bold"))
+        time_lbl.pack(padx=18, pady=(10, 0))
         date_lbl = tk.Label(frame, text="", bg=theme.color("card"), fg=theme.color("text_dim"),
-                            font=(theme.FONT, 9), padx=18, pady=(0, 10))
-        date_lbl.pack()
+                            font=(theme.FONT, 9))
+        date_lbl.pack(padx=18, pady=(0, 10))
 
         def tick():
             if not frame.winfo_exists():
