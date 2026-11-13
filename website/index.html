@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FusionOS – Dein OS. Windows trifft macOS.</title>
+<meta name="description" content="FusionOS 1.0 Hybrid – dein eigenes Desktop-OS als Python-App für Windows. Windows 11 trifft macOS. Kostenlos, ohne Abhängigkeiten.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="logo">◈ FusionOS</span>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#mix">Der Mix</a>
+      <a href="#start">Quickstart</a>
+      <a class="nav-cta" href="https://github.com/kevindepro10-cool/-FusionOS">⬇ Download</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-text">
+    <div class="badge">Version 1.0 „Hybrid“ · jetzt verfügbar</div>
+    <h1>Dein eigenes OS.<br><span class="gradient-text">Windows trifft macOS.</span></h1>
+    <p class="sub">FusionOS ist eine echte Desktop-App für Windows – geschrieben in Python,
+       mit Windows-11-Taskbar, Startmenü, 9 Apps und Boot-Erlebnis.
+       Keine Abhängigkeiten. Kein Setup. Einfach starten.</p>
+    <div class="cta-row">
+      <a class="cta primary" href="https://github.com/kevindepro10-cool/-FusionOS">Von GitHub beziehen</a>
+      <a class="cta ghost" href="#start">So startest du ▸</a>
+    </div>
+    <div class="hero-meta">✓ Python 3.9+ &nbsp;·&nbsp; ✓ Windows 10/11 &nbsp;·&nbsp; ✓ 0 Abhängigkeiten &nbsp;·&nbsp; ✓ Open Source</div>
+  </div>
+
+  <!-- CSS-Mockup des Desktops -->
+  <div class="mockup">
+    <div class="mock-desktop">
+      <div class="mock-icons">
+        <span>📁<i>Explorer</i></span><span>🖥️<i>Terminal</i></span><span>📝<i>Editor</i></span>
+      </div>
+      <div class="mock-window">
+        <div class="mock-title"><b>🧮 Rechner</b><span class="mock-btns"><u>─</u><u>▢</u><u class="red">✕</u></span></div>
+        <div class="mock-body">12 + 34 = <b>46</b></div>
+      </div>
+      <div class="mock-taskbar">
+        <span class="mock-start">⊞</span>
+        <span>📁</span><span>🖥️</span><span>📝</span><span>🌐</span><span class="running">🧮</span><span>⚙️</span>
+        <span class="mock-clock">21:47<br><small>13.11.2025</small></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <h2>Alles drin, was ein OS braucht</h2>
+  <p class="section-sub">Neun Apps, ein kompletter Desktop, null Abhängigkeiten.</p>
+  <div class="cards">
+    <div class="card"><span>🪟</span><h3>Taskbar & Startmenü</h3><p>Mittige Icons wie in Windows 11, Laufend-Punkte, Startmenü mit Suche und angepinnten Apps – per Win-Taste.</p></div>
+    <div class="card"><span>🪟</span><h3>Echte Fensterverwaltung</h3><p>Verschieben, an der Ecke skalieren, maximieren (Doppelklick auf die Titelleiste), minimieren in die Taskbar.</p></div>
+    <div class="card"><span>🖥️</span><h3>Fusion Terminal</h3><p>Eigene Shell mit Befehlen wie <code>neofetch</code>, <code>dir</code>, <code>open rechner</code> und <code>theme</code>.</p></div>
+    <div class="card"><span>📁</span><h3>Explorer & Editor</h3><p>Ordner mit Schnellzugriff und Navigation, Editor mit echten Öffnen-/Speichern-Dialogen.</p></div>
+    <div class="card"><span>🎨</span><h3>Design & Wallpaper</h3><p>6 Gradient-Wallpaper, Hell- und Dunkelmodus, Windows-Blau als Akzent – umschaltbar in Sekunden.</p></div>
+    <div class="card"><span>⚡</span><h3>Boot & Sperrbildschirm</h3><p>Boot-Screen mit Ladebalken, Sperrbildschirm mit Uhr – fühlt sich wie ein echtes System an.</p></div>
+  </div>
+</section>
+
+<section id="mix" class="mix">
+  <h2><span class="gradient-text">Der Mix.</span> Meistens Windows, ein Hauch Apple.</h2>
+  <div class="mix-grid">
+    <div class="mix-col win">
+      <h3>🪟 Von Windows</h3>
+      <ul>
+        <li>Taskbar unten, mittig, mit Start-Button ⊞</li>
+        <li>Startmenü mit angepinnter App-Kachel</li>
+        <li>Fenster-Buttons ─ ▢ ✕, Akzentfarbe Windows-Blau</li>
+        <li>Task-Manager, Explorer, Terminal-Feel</li>
+      </ul>
+    </div>
+    <div class="mix-col mac">
+      <h3>🍎 Von macOS</h3>
+      <ul>
+        <li>Gradient-Wallpaper & Glas-Farbwelt</li>
+        <li>Sanfte Animationen & abgerundete Optik</li>
+        <li>Boot-Erlebnis mit eigenem Logo ◈</li>
+        <li>Design-Sprache: clean & reduziert</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="start">
+  <h2>In 3 Minuten am Start</h2>
+  <div class="steps">
+    <div class="step"><b>1</b><h3>Python installieren</h3><p><a href="https://www.python.org/downloads/">python.org/downloads</a> – bei der Installation „Add Python to PATH“ ankreuzen.</p></div>
+    <div class="step"><b>2</b><h3>FusionOS laden</h3><p>Auf GitHub <b>Code → Download ZIP</b> klicken und entpacken.</p></div>
+    <div class="step"><b>3</b><h3>run.bat starten</h3><p>Doppelklick auf <code>run.bat</code> → Boot-Balken → Passwort (beliebig) → Desktop. Fertig!</p></div>
+  </div>
+  <div class="terminal-demo">
+    <div class="td-title">🖥️ Fusion Terminal</div>
+    <pre>C:\Users\Gast&gt; <span class="green">neofetch</span>
+        ◈◈◈          FusionOS 1.0 „Hybrid“
+      ◈◈◈◈◈◈        -------------------------
+    ◈◈◈     ◈◈◈      OS:      FusionOS 1.0 (Windows × macOS)
+                      Kernel:  Fusion 6.1-py
+                      DE:      FusionShell (Fluent)
+C:\Users\Gast&gt; <span class="cursor">▊</span></pre>
+  </div>
+</section>
+
+<footer>
+  <span>◈ FusionOS 1.0 „Hybrid“</span>
+  <a href="https://github.com/kevindepro10-cool/-FusionOS">GitHub-Repository</a>
+  <span>Gebaut mit Python & tkinter · Keine Abhängigkeiten</span>
+</footer>
+
+</body>
+</html>
