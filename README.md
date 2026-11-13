@@ -1,45 +1,80 @@
 # ◈ FusionOS 1.0 „Hybrid“
 
-Dein eigenes Betriebssystem zum Testen auf Windows — als Mix aus **Windows 11** und **macOS (Apple)**.
-Läuft komplett im Browser, keine Installation nötig, funktioniert offline.
+**Dein eigenes OS als echte Desktop-App für Windows** — geschrieben in Python, mit dem Look von **Windows 11** und einer Prise macOS. Plus einer Vorstell-Webseite im Ordner `website/`.
 
-## 🚀 So startest du es (Windows)
+---
 
-1. Diesen Ordner (`fusionos`) auf deinen Windows-PC kopieren (z.B. zippen und herunterladen).
-2. **Doppelklick auf `index.html`** → öffnet sich in Edge/Chrome/Firefox.
-3. Kurz den Boot-Balken abwarten → dann am Sperrbildschirm ein beliebiges „Passwort“ eingeben und Enter drücken. Fertig!
+## 🚀 So startest du FusionOS (Windows)
 
-> Optional (runderner): im Ordner eine Konsole öffnen und `python -m http.server` ausführen, dann im Browser `http://localhost:8000` öffnen. Nötig ist das nicht.
+1. **Python 3.9+ installieren** (falls nicht vorhanden): [python.org/downloads](https://www.python.org/downloads/) → bei der Installation **„Add Python to PATH“ ankreuzen**
+2. Dieses Repository herunterladen (**Code → Download ZIP**) und entpacken
+3. **Doppelklick auf `run.bat`** — fertig! 🎉
 
-## 🍎🪟 Was ist der Windows × Apple Mix?
+Alternativ in einer Konsole:
 
-| Element | Ursprung |
+```
+python main.py
+```
+
+> Keine Installation von Paketen nötig — FusionOS nutzt nur die Python-Standardbibliothek (tkinter).
+
+## 🪟 Was ist FusionOS?
+
+Ein kompletter Desktop in einem Fenster — **meistens Windows 11, mit macOS-DNA**:
+
+| Element | Stil |
 |---|---|
-| Menüleiste oben mit App-Namen, Kontrollzentrum, Spotlight | macOS |
-| Dock unten mit Lupe-Hover & laufend-Punkten | macOS |
-| Startmenü mit angepinnten Apps & Suche (Win-Taste) | Windows 11 |
-| Sperrbildschirm mit Uhr & Avatar | Windows Hello / macOS Mix |
-| Traffic-Light-Fenster (Schließen/Min/Max) | macOS |
-| Terminal, Explorer, Editor, Rechner, Browser, Fotos, Einstellungen | beides 😄 |
+| Taskbar unten, Icons mittig, Laufend-Punkte | Windows 11 |
+| Startmenü mit Suche + angepinnten Apps (⊞ / Win-Taste) | Windows 11 |
+| Fenster mit ─ ▢ ✕, Doppelklick auf Titelleiste = Maximieren | Windows 11 |
+| Boot-Screen mit ◈-Logo & Ladebalken, Sperrbildschirm | Windows Hello × macOS |
+| Gradient-Wallpaper, abgerundete Optik, Glas-Farben | macOS |
 
-## ⌨️ Tastenkürzel
+### Mitgelieferte Apps (9)
 
-- **Win-Taste (Meta)** → Startmenü öffnen/schließen
-- **Strg + Leertaste** → Spotlight-Suche
-- **Esc** → alle Popups schließen
-- **Rechtsklick auf Desktop** → Kontextmenü (Hintergrund, Theme, Terminal …)
+- 📁 **Explorer** — Ordner, Schnellzugriff, Navigation
+- 🖥️ **Terminal** — `help`, `dir`, `neofetch`, `open <app>`, `theme`, `shutdown` …
+- 📝 **Editor** — Öffnen/Speichern über echte Dateidialoge
+- 🧮 **Rechner** — komplett bedienbar
+- 📊 **Task-Manager** — laufende Fenster verwalten + CPU/RAM-Anzeige
+- 🌐 **Fusion Browser** — öffnet Seiten in deinem Standardbrowser
+- 🖼️ **Fotos** — Galerie
+- ⚙️ **Einstellungen** — 6 Gradient-Wallpaper, Hell/Dunkel
+- ℹ️ **Über FusionOS** — Systeminfos
+
+## ⌨️ Bedienung
+
+- **Win-Taste (⊞)** → Startmenü öffnen/schließen
+- **Doppelklick** auf Desktop-Icons → App starten
+- **Rechtsklick auf Desktop** → Kontextmenü (Hintergrund, Theme, Terminal, Task-Manager …)
+- **Doppelklick auf Fenstertitelleiste** → maximieren/wiederherstellen
+- **Escape** → Startmenü schließen
 
 ## 🖥️ Terminal-Befehle
 
-`help`, `ls`, `date`, `whoami`, `echo`, `open <app>` (z.B. `open rechner`), `neofetch`, `clear`, `shutdown`
+`help` · `dir` · `date` · `whoami` · `echo TEXT` · `open <app>` (z.B. `open rechner`) · `neofetch` · `theme` · `cls` · `shutdown`
+
+## 🌐 Vorstell-Webseite
+
+Im Ordner [`website/`](website/) liegt eine komplette Landing-Page für FusionOS (Deutsch, dunkles Design, Features, Quickstart). Einfach `website/index.html` im Browser öffnen — oder den Ordner auf [GitHub Pages](https://pages.github.com/) hosten, dann ist sie öffentlich erreichbar.
 
 ## 🛠️ Anpassen (dein eigenes OS!)
 
-- **Name/Logo ändern:** in `index.html` und `app.js` nach „FusionOS“ bzw. `◈` suchen und ersetzen.
-- **Eigene Apps hinzufügen:** in `app.js` im Objekt `APPS` einen neuen Eintrag anlegen und eine `render`-Funktion schreiben.
-- **Eigene Hintergründe:** in `style.css` eine neue Klasse `body.wall-<name> { … }` ergänzen und in `app.js` bei `WALLPAPERS` eintragen.
-- **Akzentfarbe:** in `style.css` die Variable `--accent` ändern.
+- **Name/Logo:** in `main.py` / `apps.py` / `theme.py` nach „FusionOS“ bzw. `◈` suchen
+- **Eigene App:** in `apps.py` eine `build_meineapp(parent, ctx)`-Funktion schreiben und im `APPS`-Dict registrieren — sie erscheint automatisch in Startmenü, Taskbar & Desktop
+- **Wallpaper:** in `main.py` die Liste `WALLPAPERS` erweitern
+- **Farben:** in `theme.py` (`DARK` / `LIGHT`)
+
+## 📁 Projektstruktur
+
+```
+├── main.py        # Boot, Login, Desktop, Taskbar, Startmenü, Fenster-Manager
+├── apps.py        # Alle 9 Apps
+├── theme.py       # Farben (Dunkel/Hell) & Schriften
+├── run.bat        # Windows-Doppelklick-Starter
+└── website/       # Vorstell-Webseite (index.html + style.css)
+```
 
 ## ⚠️ Hinweis
 
-Das ist ein **Desktop-Erlebnis im Browser** (ein „OS in einem OS“) — kein bootfähiges System, das Windows ersetzt. Ein echtes bootfähiges OS zu bauen (C/Assembler, Treiber, ISO) ist ein mehrwöchiges Projekt; diese Web-Variante kannst du sofort testen und weiterentwickeln.
+FusionOS ist eine **Desktop-Oberfläche als Python-App** — ein „OS im OS“ zum Ausprobieren und Weiterbauen. Windows selbst bleibt dabei dein echtes Betriebssystem darunter.
